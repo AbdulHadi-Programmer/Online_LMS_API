@@ -1,0 +1,600 @@
+[
+  {
+    "lesson": 5,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/python_intro.mp4",
+      "duration": "08:42"
+    }
+  } ,
+  {
+    "lesson": 5,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "What is Python?",
+      "body": "Python is a versatile, high-level programming language used for web development, automation, and data science."
+    }
+  } ,
+  {
+    "lesson": 5,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Python is mainly known as?",
+          "options": ["Low-level language", "High-level language", "Database", "Framework"],
+          "answer": 1
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 15,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/decorators_intro.mp4",
+      "duration": "12:10"
+    }
+  },
+  { 
+    "lesson": 15,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Understanding Decorators",
+      "body": "Decorators allow you to wrap functions and modify their behavior without permanently changing them."
+    }
+  },
+  {
+    "lesson": 15,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Decorators in Python are implemented using?",
+          "options": ["Classes", "Loops", "Functions", "Modules"],
+          "answer": 2
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 6,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/variables_datatypes.mp4",
+      "duration": "09:55"
+    }
+  },
+  {
+    "lesson": 6,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Variables and Types",
+      "body": "Python supports primitive types like int, float, string, bool, as well as complex types."
+    }
+  },
+  {
+    "lesson": 6,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Which of the following is NOT a Python data type?",
+          "options": ["list", "tuple", "dict", "character"],
+          "answer": 3
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 16,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/context_managers.mp4",
+      "duration": "11:45"
+    }
+  },
+  {
+    "lesson": 16,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Context Managers",
+      "body": "Context managers allow safe resource handling using the 'with' statement."
+    }
+  },
+  {
+    "lesson": 16,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Which method must a context manager define?",
+          "options": ["__with__", "__close__", "__enter__", "__loop__"],
+          "answer": 2
+        }
+      ]
+    }
+  }
+]
+
+[
+  {
+    "lesson": 7,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/loops_conditions.mp4",
+      "duration": "10:12"
+    }
+  },
+  {
+    "lesson": 7,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Loops and Conditions",
+      "body": "Loops allow repeated execution, and conditionals allow branching logic."
+    }
+  },
+  {
+    "lesson": 7,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Which loop runs until a condition becomes false?",
+          "options": ["for", "while", "loop", "iterate"],
+          "answer": 1
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 17,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/metaclasses_descriptors.mp4",
+      "duration": "14:32"
+    }
+  },
+  {
+    "lesson": 17,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Metaclasses & Descriptors",
+      "body": "Metaclasses control class creation, while descriptors define attribute access behavior."
+    }
+  },
+  {
+    "lesson": 17,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Descriptors must define which method?",
+          "options": ["__get__", "__del__", "__ref__", "__attr__"],
+          "answer": 0
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 14,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/functions.mp4",
+      "duration": "09:03"
+    }
+  },
+  {
+    "lesson": 14,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Functions",
+      "body": "Functions allow reusable blocks of code. They can take parameters and return values."
+    }
+  },
+// ==============================================================
+// ==============================================================
+// ==============================================================
+  {
+    "lesson": 14,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "What keyword is used to define a function?",
+          "options": ["func", "define", "def", "method"],
+          "answer": 2
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 18,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/asyncio_intro.mp4",
+      "duration": "13:20"
+    }
+  },
+  {
+    "lesson": 18,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Async IO Basics",
+      "body": "Async IO allows concurrency using coroutines, tasks, and event loops."
+    }
+  },
+  {
+    "lesson": 18,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "async functions are declared using:",
+          "options": ["async def", "await def", "asynchronous", "thread def"],
+          "answer": 0
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 8,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/modules_packages.mp4",
+      "duration": "08:55"
+    }
+  },
+  {
+    "lesson": 8,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Modules & Packages",
+      "body": "Modules help organize code, and packages allow organizing multiple modules."
+    }
+  },
+  {
+    "lesson": 8,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "__init__.py is used for?",
+          "options": ["Marking a directory as package", "Running main module", "Storing configs", "Storing classes"],
+          "answer": 0
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 19,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/pytest_testing.mp4",
+      "duration": "12:48"
+    }
+  },
+  {
+    "lesson": 19,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Testing with Pytest",
+      "body": "Pytest simplifies writing readable unit tests with fixtures and plugins."
+    }
+  },
+  {
+    "lesson": 19,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "pytest test files must start with:",
+          "options": ["test_", "pytest_", "spec_", "case_"],
+          "answer": 0
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 9,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/file_handling.mp4",
+      "duration": "07:34"
+    }
+  },
+  {
+    "lesson": 9,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "File Handling",
+      "body": "Python provides built-in functions to read, write, and manage files using the open() function."
+    }
+  },
+  {
+    "lesson": 9,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Which mode is used for writing into a file?",
+          "options": ["r", "w", "a", "x"],
+          "answer": 1
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 20,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/venv_packaging.mp4",
+      "duration": "15:18"
+    }
+  },
+  {
+    "lesson": 20,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Virtual Environments",
+      "body": "Virtual environments isolate dependencies and ensure reproducible environments."
+    }
+  },
+  {
+    "lesson": 20,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Which command creates a venv?",
+          "options": ["python -m venv", "pip install env", "python create venv", "mkvirtualenv"],
+          "answer": 0
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 10,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/error_handling.mp4",
+      "duration": "09:50"
+    }
+  },
+  {
+    "lesson": 10,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Error Handling",
+      "body": "Try/except blocks help handle exceptions and prevent crashes."
+    }
+  },
+  {
+    "lesson": 10,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Which keyword is used to catch exceptions?",
+          "options": ["try", "throw", "except", "catch"],
+          "answer": 2
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 21,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/c_extensions_intro.mp4",
+      "duration": "16:02"
+    }
+  },
+  {
+    "lesson": 21,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "C Extensions",
+      "body": "Python supports writing modules in C for speed and low-level access."
+    }
+  },
+  {
+    "lesson": 21,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Why write C extensions?",
+          "options": ["For styling", "For performance", "For packaging", "For debugging"],
+          "answer": 1
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 13,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/oop_advanced.mp4",
+      "duration": "12:20"
+    }
+  },
+  {
+    "lesson": 13,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Advanced OOP",
+      "body": "Covers inheritance, polymorphism, encapsulation, and advanced class design."
+    }
+  },
+  {
+    "lesson": 13,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Which concept restricts direct access to data?",
+          "options": ["Polymorphism", "Encapsulation", "Inheritance", "Abstraction"],
+          "answer": 1
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 22,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/memory_management_cpython.mp4",
+      "duration": "14:05"
+    }
+  },
+  {
+    "lesson": 22,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Memory Management",
+      "body": "CPython uses reference counting and a garbage collector to manage memory."
+    }
+  },
+  {
+    "lesson": 22,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "CPython primarily uses which method?",
+          "options": ["Tracing GC", "Reference Counting", "Manual free()", "Block allocation"],
+          "answer": 1
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 23,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/advanced_collections.mp4",
+      "duration": "12:58"
+    }
+  },
+  {
+    "lesson": 23,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "Advanced Collections",
+      "body": "Covers namedtuple, deque, Counter, OrderedDict, and others from collections module."
+    }
+  },
+  {
+    "lesson": 23,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Which collection is ideal for fast appends/pops? ",
+          "options": ["list", "deque", "set", "tuple"],
+          "answer": 1
+        }
+      ]
+    }
+  },
+
+  {
+    "lesson": 24,
+    "type": "video",
+    "order": 1,
+    "data": {
+      "url": "videos/cli_project.mp4",
+      "duration": "19:40"
+    }
+  },
+  {
+    "lesson": 24,
+    "type": "text",
+    "order": 2,
+    "data": {
+      "title": "CLI Tool Project",
+      "body": "A complete project demonstrating argparse, modules, packaging, and CLI design patterns."
+    }
+  },
+  {
+    "lesson": 24,
+    "type": "quiz",
+    "order": 3,
+    "data": {
+      "questions": [
+        {
+          "question": "Which module helps build CLI tools?",
+          "options": ["argparse", "random", "threading", "json"],
+          "answer": 0
+        }
+      ]
+    }
+  }
+]

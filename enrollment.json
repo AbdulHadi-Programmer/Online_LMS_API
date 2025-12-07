@@ -1,0 +1,74 @@
+[
+  {
+    "student": 10,
+    "course": 4,
+    "enrolled_at": "2025-11-25T10:00:00Z",
+    "progress": 25.0
+  },
+  {
+    "student": 10,
+    "course": 5,
+    "enrolled_at": "2025-11-25T10:05:00Z",
+    "progress": 10.0
+  },
+  {
+    "student": 10,
+    "course": 6,
+    "enrolled_at": "2025-11-25T10:10:00Z",
+    "progress": 0.0
+  },
+  {   
+    "student": 11,
+    "course": 4,
+    "enrolled_at": "2025-11-25T11:00:00Z",
+    "progress": 50.0
+  },
+  {
+    "student": 11,
+    "course": 7,
+    "enrolled_at": "2025-11-25T11:05:00Z",
+    "progress": 15.0
+  },
+  {
+    "student": 11,
+    "course": 9,
+    "enrolled_at": "2025-11-25T11:10:00Z",
+    "progress": 5.0
+  },
+  { 
+    "student": 12,
+    "course": 5,
+    "enrolled_at": "2025-11-25T12:00:00Z",
+    "progress": 20.0
+  },
+  {
+    "student": 12,
+    "course": 6,
+    "enrolled_at": "2025-11-25T12:05:00Z",
+    "progress": 30.0
+  },
+  {
+    "student": 12,
+    "course": 8,
+    "enrolled_at": "2025-11-25T12:10:00Z",
+    "progress": 10.0
+  },
+  {
+    "student": 13,
+    "course": 4,
+    "enrolled_at": "2025-11-25T13:00:00Z",
+    "progress": 40.0
+  },
+  {
+    "student": 13,
+    "course": 7,
+    "enrolled_at": "2025-11-25T13:05:00Z",
+    "progress": 0.0
+  },
+  {
+    "student": 13,
+    "course": 9,
+    "enrolled_at": "2025-11-25T13:10:00Z",
+    "progress": 5.0
+  }
+]

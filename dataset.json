@@ -1,0 +1,685 @@
+{
+    "id": 8,
+    "username": "john_doe",
+    "password": "JohnDoe!123",
+    "email": "john@lms.com",
+    "bio": "Experienced Python Developer",
+    "is_instructor": "True",
+    "is_student": "False"
+}
+{
+    // Created at 2 December 2025 ---Currently Working :
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NzI4OTIxMywiaWF0IjoxNzY0Njk3MjEzLCJqdGkiOiIxODUzNTMwMDAxZDQ0N2QwYjllY2IwOGI0YWYzZDVkZSIsInVzZXJfaWQiOiI4In0.dSC9EBkTpD0a0V5sdvz3BSyUHfdt00DjQ_EZoZhCMso",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1MzAyMDEzLCJpYXQiOjE3NjQ2OTcyMTMsImp0aSI6IjU1YmM3N2Y3YWEwYjQ5ODRiZGQ1MGY5ZDkyYzI5ZTEyIiwidXNlcl9pZCI6IjgifQ.SuOH5tlKrgfAydlADby7PMGim-RN0YU0REooC-NCbIs",
+    
+}
+
+{
+    "id": 9,
+    "username": "jane",
+    "password": "JaneData#456",
+    "email": "jane@lms.com",
+    "bio": "Data Science Expert",
+    "is_instructor": "True",
+    "is_student": "False"
+}
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjY2NzcyMCwiaWF0IjoxNzY0MDc1NzIwLCJqdGkiOiJjZTllNTFiNmJhZWM0MDVjYjBhMTMxYjIwMTM5YjdmYyIsInVzZXJfaWQiOiI5In0.UL59pb6_ytbgnCV5UnqjottOfu68fSIg5Z_R7i3uEls",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY0NjgwNTIwLCJpYXQiOjE3NjQwNzU3MjAsImp0aSI6IjAyNTQ4Y2VhNjNkMzQwNGI4ZjIxOWI3OTAyZmYxOTdjIiwidXNlcl9pZCI6IjkifQ.6hgjKNObkD5RcMCEDfCeM12zPJ1dhux7E86zvXAppXQ",
+
+}
+// Student 
+{
+    "id": 10,
+    "username": "alice_w",
+    "password": "AliceLearn@12",
+    "email": "alice@student.com",
+    "bio": "Enthusiast Learner",
+    "is_instructor": "False",
+    "is_student": "True"
+}
+{   // Student Acc 2 December Created --- cureently working 
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NzI4OTQxNiwiaWF0IjoxNzY0Njk3NDE2LCJqdGkiOiI2NzVmYTJmYzZiNjQ0M2QyYmYyZmJlMjUzNjUyNWE5OCIsInVzZXJfaWQiOiIxMCJ9.XM2iL6gNEgbAIAur4qFqR6hTiApdpdJmMKBl_SFcst0",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1MzAyMjE2LCJpYXQiOjE3NjQ2OTc0MTYsImp0aSI6IjQ2OWFkMzgyYWMzOTQ0ZDI5MWM0MmRmZTQ3MmVjMTY5IiwidXNlcl9pZCI6IjEwIn0.Hvy8ZT3vT0QIWc7-qNu2IQc48Ryi9a4p2TomBfkhTh0",
+}
+{
+    "id": 11,
+    "username": "bob_m",
+    "password": "BobCode#99",
+    "email": "bob@student.com",
+    "bio": "Loves Coding",
+    "is_instructor": "False",
+    "is_student": "True"
+}
+{
+"refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjY5MTcyMCwiaWF0IjoxNzY0MDk5NzIwLCJqdGkiOiI0N2UzNTY3NThjMDU0MjkxYTBmNWZhOTNhZmZiMjkwNSIsInVzZXJfaWQiOiIxMSJ9.KbVdfntu-ujknEIRwOJmtMPcsKrSb1U5ozzUr1MwdL0",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY0NzA0NTIwLCJpYXQiOjE3NjQwOTk3MjAsImp0aSI6ImViZjNiYjlmM2ZkZDQ2YzY4NTQ3MjJiNDMxNzA2YjkzIiwidXNlcl9pZCI6IjExIn0.MP5ts1wvpkYjedPM-zNCC-kYBYHHIi1favm_ZsPllu4",
+}
+{
+    "id": 12,
+    "username": "charlie_w",
+    "password": "CharlieDS!55",
+    "email": "charlie@student.com",
+    "bio": "Data Science Newbie",
+    "is_instructor": "False",
+    "is_student": "True"
+}
+{
+     "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjY5Mjc2NSwiaWF0IjoxNzY0MTAwNzY1LCJqdGkiOiI5ZjhlOTAxNDc0Nzc0YWRiOTg1ZjFjY2NkYWJkMzY3MCIsInVzZXJfaWQiOiIxMiJ9.4UgK0gYg9XJ2N-1rtLImMuELvpJ8_h0SbEJ9-hcc_H4",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY0NzA1NTY1LCJpYXQiOjE3NjQxMDA3NjUsImp0aSI6IjM3OTRiYzIzMzk1MjRjMTJhNzI2MDNmMzlmMTkwNzNjIiwidXNlcl9pZCI6IjEyIn0.8i3XDf6pQcKyaTdj1odsmtwo8TIXADq4lSRkUH1ox5A",
+  
+}
+{
+    "id": 13,
+    "username": "dana_r",
+    "password": "DanaWebDev@77",
+    "email": "dana@student.com",
+    "bio": "Aspiring Web Developer",
+    "is_instructor": "False",
+    "is_student": "True"
+}
+
+// Categories 
+{
+    "id": 4,  // 4 
+    "name": "Programming",
+    "description": "Learn coding, Python, Java, etc"
+}
+{
+    "id": 5,  // 5
+    "name": "Data Science", 
+    "description": "Data Analysis, ML , AI"
+}
+{
+    "id": 6,  // 6
+    "name": "Web Development",
+    "description": "Frontend and backend web courses"
+}
+// Courses
+{
+    "id": 4,
+    "title": "Python for Beginners",
+    "category": 4,
+    "instructor": 8,  // 1 <-> 8
+    "price": 500.00,
+    "thumbnail":"ImageField",
+    "description": "Learn Python from scratch"
+}
+{
+    "id": 5,
+    "title": "Advanced Python",
+    "category": 4,
+    "instructor": 8,
+    "price": 800.00,
+    "thumbnail":"ImageField",
+    "description": "Deep Dive into Python Advanced Topics"
+}
+{
+    "id": 6,
+    "title": "Data Science 101",
+    "category": 5,
+    "instructor": 9,  // 2 <-> 9
+    "price": 700.00,
+    "thumbnail":"",
+    "description": "Introduction to Data Science"
+}
+{
+    "id": 7,
+    "title": "Machine Learning Basics",
+    "category": 5,
+    "instructor": 9, // 2 <-> 9
+    "price": 1000.00,
+    "thumbnail":"",
+    "description": "Learn ML concepts and Algorithms"
+}
+{
+    "id": 8,
+    "title": "Fullstack web Development",
+    "category": 6,
+    "instructor": 8, // 1 <-> 8
+    "price": 1200.00,
+    "thumbnail": "ImageField",
+    "description": "Frontend + backend web development"
+}
+{
+    "id": 9,
+    "title": "React for Beginners",
+    "category": 6,
+    "instructor": 9, // 2 <-> 9
+    "price": 600.00,
+    "thumbnail":"ImageField",
+    "description": "Learn React.js for modern web apps"
+}
+// Lessons (10 per courses, abbreviated)
+// Course 1
+{
+    "id": 5,
+    "course": 4,
+    "title": "Introduction to Python", 
+    "duration": "15 min",
+    "order": 1
+}
+{
+    "id": 6, 
+    "course": 4,
+    "title": "Variables and Data Types", 
+    "duration": "20 min",
+    "order": 2
+}
+{
+    "id": 7,
+    "course": 4,
+    "title": "Loops and Conditions", 
+    "duration": "25 min",
+    "order": 3
+}
+{
+    "id": 14,
+    "course": 4,
+    "title": "Functions", 
+    "duration": "30 min",
+    "order": 4
+}
+{
+    "id": 8,
+    "course": 4,
+    "title": "Modules and Packages", 
+    "duration": "20 min",
+    "order": 5
+}
+{
+    "id": 9,
+    "course": 4,
+    "title": "Files Handing", 
+    "duration": "25 min",
+    "order": 6
+}
+{
+    "id": 10,
+    "course": 4,
+    "title": "Error Handling", 
+    "duration": "15 min",
+    "order": 7
+}
+{
+    "id": 13,
+    "course": 4,
+    "title": "OOP Advanced",
+    "duration": "40 min",
+    "order": 8
+}
+// Lesson :- Course 2: Advanced Python
+{
+    "id": 15,
+    "course": 5,
+    "title": "Decorators and Generators",
+    "duration": "45 min",
+    "order": 1
+}
+{
+    "id": 16,
+    "course": 5,
+    "title": "Context Managers (with statement)",
+    "duration": "30 min",
+    "order": 2
+}
+{
+    "id": 17,
+    "course": 5,
+    "title": "Metaclasses and Descriptors",
+    "duration": "60 min",
+    "order": 3
+}
+{
+    "id": 18,
+    "course": 5,
+    "title": "Async IO with asyncio",
+    "duration": "50 min",
+    "order": 4
+}
+{
+    "id": 19,
+    "course": 5,
+    "title": "Testing with pytest",
+    "duration": "40 min",
+    "order": 5
+}
+{
+    "id": 20,
+    "course": 5,
+    "title": "Virtual Environments and Packaging",
+    "duration": "35 min",
+    "order": 6
+}
+{
+    "id": 21,
+    "course": 5,
+    "title": "Introduction to C Extensions",
+    "duration": "55 min",
+    "order": 7
+}
+{
+    "id": 22,
+    "course": 5,
+    "title": "Memory Management in CPython",
+    "duration": "30 min",
+    "order": 8
+}
+{
+    "id": 23,
+    "course": 5,
+    "title": "Advanced Data Structures (collections)",
+    "duration": "40 min",
+    "order": 9
+}
+{
+    "id": 24,
+    "course": 5,
+    "title": "Project: Building a Command Line Tool",
+    "duration": "70 min",
+    "order": 10
+}
+// ====================================================================================================
+// DONE from all above
+// Course 3: Data Science 101
+// ====================================================================================================
+{
+    "id": 24,
+    "course": 6,
+    "title": "What is Data Science?",
+    "duration": "20 min",
+    "order": 1
+}
+{
+    "id": 25,
+    "course": 6,
+    "title": "NumPy Basics for Data Analysis",
+    "duration": "30 min",
+    "order": 2
+}
+{
+    "id": 26,
+    "course": 6,
+    "title": "Pandas DataFrames and Manipulation",
+    "duration": "45 min",
+    "order": 3
+}
+{
+    "id": 27,
+    "course": 6,
+    "title": "Data Cleaning and Preprocessing",
+    "duration": "50 min",
+    "order": 4
+}
+{
+    "id": 28,
+    "course": 6,
+    "title": "Data VisualizaGreat Introduction to Pythontion (Matplotlib & Seaborn)",
+    "duration": "40 min",
+    "order": 5
+}
+{
+    "id": 29,
+    "course": 6,
+    "title": "Basic Statistics Concepts",
+    "duration": "35 min",
+    "order": 6
+}
+{
+    "id": 30,
+    "course": 6,
+    "title": "Probability Distributions",
+    "duration": "30 min",
+    "order": 7
+}
+{
+    "id": 31,
+    "course": 6,
+    "title": "Introduction to SQL for Data Scientists",
+    "duration": "45 min",
+    "order": 8
+}
+{
+    "id": 32,
+    "course": 6,
+    "title": "Data Storytelling and Presentation",
+    "duration": "25 min",
+    "order": 9
+}
+{
+    "id": 33,
+    "course": 6,
+    "title": "Final Project Overview",
+    "duration": "60 min",
+    "order": 10
+}
+// Course 4: Machine Learning Basics
+{
+    "id": 34,
+    "course": 7,
+    "title": "ML Workflow Overview",
+    "duration": "25 min",
+    "order": 1
+}
+{
+    "id": 35,
+    "course": 7,
+    "title": "Supervised vs Unsupervised Learning",
+    "duration": "30 min",
+    "order": 2
+}
+{
+    "id": 36,
+    "course": 7,
+    "title": "Linear Regression Model",
+    "duration": "45 min",
+    "order": 3
+}
+{
+    "id": 37,
+    "course": 7,
+    "title": "Logistic Regression and Classification",
+    "duration": "40 min",
+    "order": 4
+}
+{
+    "id": 38,
+    "course": 7,
+    "title": "Decision Trees and Random Forests",
+    "duration": "50 min",
+    "order": 5
+}
+{
+    "id": 39,
+    "course": 7,
+    "title": "Support Vector Machines (SVM)",
+    "duration": "40 min",
+    "order": 6
+}
+{
+    "id": 40,
+    "course": 7,
+    "title": "K-Nearest Neighbors Algorithm",
+    "duration": "30 min",
+    "order": 7
+}
+{
+    "id": 41,
+    "course": 7,
+    "title": "Clustering Algorithms (K-Means)",
+    "duration": "35 min",
+    "order": 8
+}
+{
+    "id": 42,
+    "course": 7,
+    "title": "Model Evaluation Metrics",
+    "duration": "45 min",
+    "order": 9
+}
+{
+    "id": 43,
+    "course": 7,
+    "title": "Bias and Variance Tradeoff",
+    "duration": "30 min",
+    "order": 10
+}
+// Course 5: Fullstack Web Development
+{
+    "id": 44,
+    "course": 8,
+    "title": "Intro to Fullstack Architecture",
+    "duration": "20 min",
+    "order": 1
+}
+{
+    "id": 45,
+    "course": 8,
+    "title": "HTML5 and CSS3 Deep Dive",
+    "duration": "40 min",
+    "order": 2
+}
+{
+    "id": 46,
+    "course": 8,
+    "title": "JavaScript ES6+ and Modern Syntax",
+    "duration": "50 min",
+    "order": 3
+}
+{
+    "id": 47,
+    "course": 8,
+    "title": "Backend Introduction (Node.js/Express)",
+    "duration": "45 min",
+    "order": 4
+}
+{
+    "id": 48,
+    "course": 8,
+    "title": "REST APIs Design and Implementation",
+    "duration": "55 min",
+    "order": 5
+}
+{
+    "id": 49,
+    "course": 8,
+    "title": "Database Fundamentals (MongoDB/PostgreSQL)",
+    "duration": "40 min",
+    "order": 6
+}
+{
+    "id": 50,
+    "course": 8,
+    "title": "Connecting Frontend to Backend (API Calls)",
+    "duration": "35 min",
+    "order": 7
+}
+{
+    "id": 51,
+    "course": 8,
+    "title": "Authentication and Authorization (JWT)",
+    "duration": "45 min",
+    "order": 8
+}
+{
+    "id": 52,
+    "course": 8,
+    "title": "Deployment Basics (Heroku/Netlify)",
+    "duration": "30 min",
+    "order": 9
+}
+{
+    "id": 53,
+    "course": 8,
+    "title": "Final Project Walkthrough",
+    "duration": "70 min",
+    "order": 10
+}
+
+// Course 6: React for Beginners
+{
+    "id": 54,
+    "course": 9,
+    "title": "What is React and Why Use It?",
+    "duration": "20 min",
+    "order": 1
+}
+{
+    "id": 55,
+    "course": 9,
+    "title": "JSX Syntax Explained",
+    "duration": "25 min",
+    "order": 2
+}
+{
+    "id": 56,
+    "course": 9,
+    "title": "Components and Props",
+    "duration": "35 min",
+    "order": 3
+}
+{
+    "id": 57,
+    "course": 9,
+    "title": "State and Event Handling",
+    "duration": "40 min",
+    "order": 4
+}
+{
+    "id": 58,
+    "course": 9,
+    "title": "Hooks: useState and useEffect",
+    "duration": "50 min",
+    "order": 5
+}
+{
+    "id": 59,
+    "course": 9,
+    "title": "Conditional Rendering and Lists",
+    "duration": "30 min",
+    "order": 6
+}
+{
+    "id": 60,
+    "course": 9,
+    "title": "Styling in React Apps",
+    "duration": "25 min",
+    "order": 7
+}
+{
+    "id": 61,
+    "course": 9,
+    "title": "Routing with React Router",
+    "duration": "40 min",
+    "order": 8
+}
+{
+    "id": 62,
+    "course": 9,
+    "title": "Introduction to Context API",
+    "duration": "35 min",
+    "order": 9
+}
+{
+    "id": 63,
+    "course": 9,
+    "title": "Building a Simple Todo App Project",
+    "duration": "60 min",
+    "order": 10
+}
+
+// Reviews (20 reviews for 6 courses)
+{  // Done
+    "student": 10,  // 3 = 8
+    "course": 4,  // 1 = 4 
+    "rating": 5,
+    "comment": "Great Introduction to Python"
+}
+{
+    "student": 11,  // 4 = 9 
+    "course": 4,
+    "rating": 4,
+    "comment": "Very Helpful for beginners"
+}
+{
+    "student": 10, // 5 = 10 
+    "course": 5,  // 2 = 5
+    "rating": 5,
+    "comment": "Advanced topics explained clearly"
+}
+{
+    "student": 11, // 6 = 11
+    "course": 5,
+    "rating": 4,
+    "comment": "Challenging but worth it"
+}
+{
+    "student": 10,  // 3 = 8 
+    "course": 6,  // 3 = 6
+    "rating": 5,
+    "comment": "Learned so much about data analysis"
+}
+{
+    "student": 11,  // 4= 9 
+    "course": 7,  // 3 = 6
+    "rating": 4,
+    "comment": "Good Course, easy to follow"
+}
+{
+    "student": 10,  
+    "course": 6,  
+    "rating": 5,
+    "comment": "Excellent ML course for beginners"
+}
+{
+    "student": 11,    
+    "course": 9,  
+    "rating": 4,
+    "comment": "Concepts are clear and Practical"
+}
+{
+    "student": 8,   // 3 = 8 
+    "course": 8,  // 5 = 8
+    "rating": 5,
+    "comment": "FullStack Web Course is very detailed"
+}
+{
+    "student": 7,  // 4 = 7
+    "course": 8,   // 5 = 8
+    "rating": 4,
+    "comment": "Backend Lessons are great."
+}
+{
+    "student": 10,   // 5 = 10
+    "course": 9,  // 6 = 9
+    "rating": 5,
+    "comment": "React course helped me build real apps"
+}
+{
+    "student": 12,
+    "course": 6, // 1 = 4
+    "rating": 5,
+    "comment": "Good Practical Exercises"
+}
+{
+    "student": 8,
+    "course": 4,   // 1 = 4 
+    "rating": 5,
+    "comment": "Nice Exercises for Python"
+}
+{
+    "student": 8, // 3 = 8
+    "course": 4,  // 1 = 4
+    "rating": 5,
+    "comment": "Very useful advanced python topics."
+}
+{
+    "student": 12,  // 3 = 8
+    "course": 8,  // 1 = 4
+    "rating": 5,
+    "comment": "Helpful explanations for beginners."
+}
+{
+    "student": 13, 
+    "course": 4,   
+    "rating": 5,
+    "comment": "Liked the ML projects included."
+}
+{
+    "student": 13, 
+    "course": 9,  
+    "rating": 5,
+    "comment": "Frontend Parts are Excellent."
+}
+{
+    "student": 13,
+    "course": 9,   // 1 = 4
+    "rating": 5,
+    "comment": "React hooks explained well."
+}
+{
+    "student": 12,
+    "course": 5,   // 1 = 4 
+    "rating": 5,
+    "comment": "Could add more examples."
+}
