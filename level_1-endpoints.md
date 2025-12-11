@@ -71,12 +71,12 @@ We need a more robust structure for lessons, including different content types a
 1. **Content Model (e.g., Videos, Quizzes)**  **Done But `Permission not added`**
 Lessons are just containers. Content is what's inside.
 
-| Method	 |   Endpoint                    	   |   Description                           	    |  Permission                  |
+| Method	 |   Endpoint                    	   |   Description                           	    |  `Permission`                  |
 | ---------- | ----------------------------------- | ---------------------------------------------- | ---------------------------- |
 |  GET	     |   `/lms/lessons/<lesson_id>/content/` |	 List content within a lesson           	|  Enrolled student / Owner    |
 |  GET       |   `/lms/lessons/<lesson_id>/content/`  |   List content within a specific lesson  |
 |  GET       |   `/lms/courses/<course_id>/lessons/`  |   Show All lesson of specific course |  
-|  GET       |   `/lms/course-data/<course_id>/`    |   Show all data of courses mean all lesson and all content | Enrolled Student / Owner | 
+|  GET       |   `/lms/course-data/<course_id>  /`    |   Show all data of courses mean all lesson and all content | Enrolled Student / Owner | 
 
 
 2.  **Progress Tracking & Completion:**
@@ -102,8 +102,8 @@ Enhance how instructors manage their enrolled students and track their performan
 | Method   	| Endpoint	                             |    Description	                                        |  Permission               |
 | --------- | -------------------------------------- | -------------------------------------------------------- | ------------------------- |
 | GET   	| /lms/enrollments/my_courses/	         | List all courses the current user is enrolled in     	| Student Only              |
-| GET   	| /lms/courses/<id>/analytics/	         | View course completion rates and average quiz scores	    | Instructor Only (Owner)   |
-| POST   	| /lms/courses/<id>/grade/<student_id>/	 | Submit a grade for a student's completed course       	| Instructor Only (Owner)   |
+| `GET`   	| /lms/courses/<id>/analytics/	         | View course completion rates and average quiz scores	    | Instructor Only (Owner)   |
+| `POST`   	| /lms/courses/<id>/grade/<student_id>/	 | Submit a grade for a student's completed course       	| Instructor Only (Owner)   |
 
 ## =========================================================================================================================================
 ## OPTIONAL :

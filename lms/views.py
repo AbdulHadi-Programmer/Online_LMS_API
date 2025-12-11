@@ -4,7 +4,7 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from rest_framework.permissions import IsAuthenticated
-
+from django.db.models import Count, Avg
 from .models import Course, Lesson, Category, Enrollment, Review
 from .serializers import (
     CourseSerializer,
@@ -58,6 +58,26 @@ class GetAllUser(APIView):
         serializer = UserSerializer(user, many=True)
         return Response(serializer.data)
 
+class GetSpecificUser(APIView):
+    permission_classes = [IsAuthenticated]
+        
+    def get(self, request, pk):
+        try:
+            user = CustomUser.objects.get(id=pk)
+        except CustomUser.DoesNotExist:
+            return Response({"detail": "User not found"}, status= status.HTTP_404_NOT_FOUND )
+
+        serializer = UserSerializer(user, context={'request': request})
+        
+        return Response(serializer.data)
+    
+    
+    def delete(self, request, pk):
+        user = get_object_or_404(CustomUser, id=pk)
+        user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 # =========================================================
 # COURSE CRUD
 # =========================================================
@@ -76,7 +96,7 @@ class CourseAPIView(APIView):
                 | Q(description__icontains=search)
                 | Q(category__name__icontains=search)
             )
-
+    
         # FILTER
         category = request.query_params.get("category")
         if category:
@@ -248,9 +268,25 @@ class CategoryDetailAPIView(APIView):
 # =========================================================
 # ENROLLMENT CRUD
 # =========================================================
-from .permissions import IsStudentEnrollingSelf, IsInstructorManagingEnrollment
+from .permissions import IsStudentEnrollingSelf, InstructorManagingEnrollment
 class EnrollmentAPIView(APIView):
-    permission_classes = [IsStudentEnrollingSelf | IsInstructorManagingEnrollment]
+    
+    def get_permissions(self):
+        """
+        Student can enroll only themself
+        Instructor can add student in his course 
+        """
+        if self.request.method == 'GET':
+            return [IsAuthenticated()]   # Any Auth user can view that 
+        
+        if self.request.user.is_student:
+            return [IsAuthenticated()]
+        
+        if self.request.user.is_instructor :
+            return [InstructorManagingEnrollment()]
+        
+        return [IsAuthenticated()]
+
     def get(self, request):
         queryset = Enrollment.objects.all()
 
@@ -277,12 +313,6 @@ class EnrollmentAPIView(APIView):
         serializer = EnrollmentSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    # def post(self, request):
-    #     serializer = EnrollmentSerializer(data=request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()  
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def post(self, request):
         user = request.user 
         data = request.data.copy()  # copy so we can modify 
@@ -293,20 +323,18 @@ class EnrollmentAPIView(APIView):
             data['student'] = user.id
             serializer = EnrollmentSerializer(data=data)
             if serializer.is_valid():
-                serializer.save(student=user)
+                serializer.save()
                 return Response(serializer.data, status=201)
             return Response(serializer.errors, status=400)
         
         # Instructor Enrolling in a student 
         elif user.is_instructor:
             course_id = data.get('course')
-            student_id = data.get('student')
+            if not course_id:
+                return Response({"error": "course is required"}, status=400)
 
             # Make sure the instructor owns the course
-            course = get_object_or_404(Course, id=course_id)
-            if course.instructor != user:
-                return Response({"detail": "You can only enroll students in your own courses."}, status=403)
-
+            course = get_object_or_404(Course, id=course_id, instructor=user)
             serializer = EnrollmentSerializer(data=data)
             if serializer.is_valid():
                 serializer.save()  # student comes from request.data['student']
@@ -316,8 +344,10 @@ class EnrollmentAPIView(APIView):
         else:
             return Response({"detail": "Unauthorized"}, status=403)
 
-
+from .permissions import IsEnrolledInCourse
 class EnrollmentDetailAPIView(APIView):
+    permission_classes = [IsAuthenticated, IsEnrolledInCourse]
+
     def get(self, request, pk):
         enrollment = get_object_or_404(Enrollment, pk=pk)
         serializer = EnrollmentSerializer(enrollment)
@@ -449,7 +479,7 @@ class UserDetailView(APIView):
 
 from .models import Content, ContentProgress, QuizSubmission
 from .serializers import ContentProgressSerializer, ContentSerializer, QuizSubmissionSerializer
-from .permissions import IsQuizOwnerOrReadOnly, IsEnrolledInCourse, CanSubmitQuizOnce 
+from .permissions import *
 from rest_framework.views import APIView
 from rest_framework.response import Response 
 from rest_framework import status 
@@ -611,11 +641,196 @@ class CourseLessonListAPIView(APIView):
         serializer = LessonSerializer(qs, many=True)
         return Response(serializer.data)
 
-
+from .permissions import IsStudentOnly, IsEnrolledInCourse
 # All data course -> lesson -> content :
 class CourseFullDetailAPIView(APIView):
+    permission_classes = [IsAuthenticated, IsEnrolledInCourse]
     def get(self, request, course_id):
         course = get_object_or_404(Course.objects.prefetch_related("lessons__content"), id=course_id)
         serializer = CourseFullSerializer(course)
         return Response(serializer.data)
     
+
+
+# Enrollment Section V2
+class MyCoursesAPIView(APIView):
+    """Student cam view his own courses """
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        if not hasattr(request.user, 'is_student') or not request.user.is_student:
+            return Response({"error": "Only Students can view enrolled courses"}, status=403)
+
+        enrollments = Enrollment.objects.filter(student=request.user, is_active=True)
+        serializer = EnrollmentSerializer(enrollments, many=True)
+        return Response (serializer.data)
+    
+
+class InstructorCoursesAPIView(APIView):
+    """Instructor can view their own courses"""
+    def get(self, request):
+        if not request.user.is_instructor:
+            return Response({"error": "Only Instructor can view thier own courses."}, status=403)
+
+       # Get Courses:
+        courses = Course.objects.filter(instructor=request.user)
+        serializer = CourseSerializer(courses, many=True)
+        return Response(serializer.data, status=200)
+    
+class MarkCompleteAPIView(APIView):
+    """
+    API urls: /lms/progress/complete/<content_id>/
+    """
+    permission_classes = [IsAuthenticated]
+    def post(self, request, content_id):
+        content = get_object_or_404(Content, id=content_id)
+        # serializer = ContentSerializer(content)
+        if not request.user.is_student :
+            return Response ({"error": "Only Student can have Permission"}, status=status.HTTP_403_FORBIDDEN)
+        
+        course = content.lesson.course 
+        enroll = Enrollment.objects.filter(student=request.user, course=course, is_active=True).exists()
+        
+        if not enroll :
+            return Response({'error': "Enrollment not found"}, status=403)
+        progress, created = ContentProgress.objects.update_or_create( student=request.user, content = content,  defaults={'is_completed': True, 'completed_at': timezone.now()})
+
+        if created : 
+            return Response({"message": "Marked as complete"}, 201)
+        else:
+            return Response({"message": "Already Marked"}, 200)
+
+### Content Progress Percentage :
+class ContentProgressPercentage(APIView):
+    def get(self, request, course_id):
+
+        if not request.user.is_student :    
+            return Response({"error": "Only Student Allowed"}, status=403)
+        
+        course = get_object_or_404(Course, id=course_id)
+        if not Enrollment.objects.filter(student=request.user, course=course, is_active=True).exists():
+            return 
+            
+        # Count content of specific course 
+        total_contents = Content.objects.filter(lesson__course=course).count()
+        
+        completed_contents = Content.objects.filter(student=request.user, content__lesson__course=course, is_completed=True).count()
+
+        if total_contents == 0:
+            percentage = 0
+        else:
+            percentage = round((completed_contents / total_contents) * 100, 2)
+        return Response({
+            "course_id": course_id,
+            "course_title": course.title,
+            "total_content": total_contents,
+            "completed_contents": completed_contents,
+            "progress_percentage": percentage 
+        }, status=200)
+
+
+## Analytics API :
+class CourseAnalyticsAPIView(APIView):
+    permission_classes = [IsAuthenticated]  # Baad mein tight kar lenge
+
+    def get(self, request, id):
+        course = get_object_or_404(Course, id=id)
+
+        # Permission check: Sirf owner instructor hi dekh sake
+        if not request.user.is_instructor or course.instructor != request.user:
+            return Response({"error": "You are not authorized to view analytics for this course"}, status=status.HTTP_403_FORBIDDEN)
+
+        # Total enrolled students
+        total_students = Enrollment.objects.filter(course=course, is_active=True).count()
+
+        # Total contents in the course
+        total_contents = Content.objects.filter(lesson__course=course).count()
+
+        # Completed students (jo saare contents complete kar chuke hain)
+        completed_students = ContentProgress.objects.filter(
+            content__lesson__course=course,
+            is_completed=True
+        ).values('student').annotate(
+            completed_count=Count('content')
+        ).filter(
+            completed_count=total_contents
+        ).count()
+
+        # Completion rate
+        completion_rate = round((completed_students / total_students * 100), 2) if total_students > 0 else 0.0
+
+        # Average quiz score (agar QuizSubmission model hai)
+        average_quiz_score = QuizSubmission.objects.filter(
+            content__lesson__course=course
+        ).aggregate(avg_score=Avg('score'))['avg_score'] or 0.0
+
+        # Response
+        return Response({
+            "course_id": course.id,
+            "course_title": course.title,
+            "total_enrolled_students": total_students,
+            "completed_students": completed_students,
+            "completion_rate_percentage": completion_rate,
+            "average_quiz_score": round(average_quiz_score, 2)
+        }, status=status.HTTP_200_OK)
+        
+"""
+AnalyticsAPIView Explained:
+1. Permission Check: Sabse pehle check karta hai ki user instructor hai aur course ka owner hai. Agar nahi toh 403 return. Yeh security ke liye critical hai — baad mein proper permission class bana lenge.
+2. Total Students: Enrollment model se filter karke count karta hai kitne active students enrolled hain.
+3. Total Contents: Content model se course ke saare contents count karta hai (lesson ke through link).
+4. Completed Students (Main Logic): Yeh thoda advanced hai — ek query mein saare ContentProgress ko group karta hai student-wise, phir annotate karke check karta hai ki kis student ne exactly total_contents jitne complete kiye hain. Yeh efficient hai, loop nahi lagata.
+5. Completion Rate: Simple math — completed / total * 100 (round karke 2 decimal).
+6. Average Quiz Score: QuizSubmission model se saare submissions ka average score nikaalta hai. Agar model nahi hai abhi toh 0 return karega.
+7. Response: JSON mein sab data return karta hai — clean aur readable.
+
+Yeh API run karne pe instructor ko full insights dega, jaise Udemy dashboard.
+"""
+
+class AssignGradeAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, id, student_id):
+        course = get_object_or_404(Course, id=id)
+        student = get_object_or_404(CustomUser, id=student_id)
+
+        # Permission check: only instructor owner can give grades 
+        if not request.user.is_instructor or course.instructor != request.user :
+            return Response({"error": "You are not authorized to assign grades for this course"}, status=status.HTTP_403_FORBIDDEN)
+        
+        # Enrollment check 
+        enrollment = get_object_or_404(Enrollment, course=course, student=student, is_active=True)
+
+        # Take Grade from the request 
+        grade = request.data.get('grade')
+        if not grade:
+            return Response({"error": "Grade is required"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        # Optional Validation (eg: )
+        valid_grades = ['A+', 'A', 'B+', 'B', 'C', 'F'] 
+        if grade not in valid_grades:
+            return Response({"error": "Invalid Grade"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        # save 
+        enrollment.grade = grade 
+        enrollment.completed= True 
+        enrollment.save()
+
+        # Response 
+        return Response({
+            "message": "Grade Assigned Succesfully",
+            "student" : student.username,
+            "course": course.title,
+            "grade": grade 
+        }, status=status.HTTP_201_CREATED)
+    
+
+"""
+Explanation of Grade API:
+Permission Check: Analytics jaise hi — instructor + owner.
+Objects Get Kar: Course aur student ko ID se fetch karta hai.
+Enrollment Verify: Sirf enrolled student ko grade de sake.
+Grade Input: Request body se 'grade' le ta hai, validate karta hai (invalid toh 400).
+Save: Enrollment mein grade set karta hai, optional completed=True.
+Response: Success message + details return.
+"""

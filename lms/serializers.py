@@ -40,6 +40,15 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ["id", "username", "email", "bio", "profile_image", "is_student", "is_instructor"]
         read_only_fields = ["id", "is_student", "is_instructor"]
 
+    def get_fields(self):
+        fields = super().get_fields()
+        request = self.context.get('request')
+        if not request or not request.user.is_authenticated:
+            return fields 
+        if request.user.id == self.instance :
+            return fields 
+        return fields 
+    
 
 # -----------------------
 # Custom JWT payload: include role flags so frontend knows who the user is
@@ -104,17 +113,18 @@ class LessonSerializer(serializers.ModelSerializer):
 class EnrollmentSerializer(serializers.ModelSerializer):
     student_name = serializers.CharField(source="student.username", read_only=True)
     course_name = serializers.CharField(source="course.title", read_only=True)
+    instructor = serializers.CharField(source='course.instructor.username', read_only=True)
 
     class Meta:
         model = Enrollment
-        fields = ["id", "student", "student_name", "course", "course_name", "enrolled_at"]
-        read_only_fields = ["enrolled_at"]
+        fields = ["id", "student", "student_name", "course", "course_name", 'instructor', 'is_active', "enrolled_at" ]
+        read_only_fields = ["enrolled_at", 'is_active']
 
 
 
-# -----------------------
+# -------------------------------------------------------
 # Review Serializer (auto-updates course average rating)
-# -----------------------
+# -------------------------------------------------------
 class ReviewSerializer(serializers.ModelSerializer):
     student_name = serializers.CharField(source="student.username", read_only=True)
     course_name = serializers.CharField(source="course.title", read_only=True)
@@ -178,9 +188,11 @@ class ContentProgressSerializer(serializers.ModelSerializer):
         read_only_fields = ["completed_at"]
 
 class ContentSerializer(serializers.ModelSerializer):
+    lesson_name = serializers.CharField(source='lesson.title', read_only=True)
+    course_name = serializers.CharField(source='lesson.course.title', read_only=True)
     class Meta:
         model = Content
-        fields = ["id", "lesson", "type", "order", "data", "created_at"]
+        fields = ["id", "lesson", "lesson_name", "course_name","type", "order", "data", "created_at"]
         read_only_fields = ["id", "created_at"]
 
 
@@ -218,3 +230,22 @@ class CourseFullSerializer(serializers.ModelSerializer):
 
 #lesson: course, title, order
 # Content : all fields 
+
+# =========================================
+#   Content Progress 
+# =========================================
+class ContentProgressSerializer(serializers.ModelSerializer):
+    student_name = serializers.CharField(source='student.username', read_only=True)
+
+    # data JSONField se title nikal rahe hain
+    content_title = serializers.SerializerMethodField()
+
+    def get_content_title(self, obj):
+        return obj.content.data.get('title') or f"{obj.content.type.capitalize()} Content"
+
+    class Meta :
+        model = ContentProgress 
+        fields = ["id", "student_name", "student", "content", "content_title", "is_completed", "completed_at"]
+        
+
+        

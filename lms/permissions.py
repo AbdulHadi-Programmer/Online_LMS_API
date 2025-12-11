@@ -1,6 +1,6 @@
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 from lms.models import Enrollment
-
+from lms.models import *
 
 # ==========================================================
 # COURSE PERMISSIONS
@@ -15,7 +15,6 @@ class IsCourseInstructorOrReadOnly(BasePermission):
         if request.method in SAFE_METHODS:
             return True
         return obj.instructor == request.user  # CORRECT FIELD
-
 
 class IsInstructorOnly(BasePermission):
     """
@@ -130,28 +129,22 @@ class IsReviewOwnerOrReadOnly(BasePermission):
 # ==========================
 # Enrollment Permission 
 # ==========================
-class IsStudentEnrollingSelf(BasePermission):
-    """
-    Only allows a student to enroll themselves in a course.
-    """
-    def has_permission(self, request, view):
-        if request.method != "POST": 
-            return True 
-        return bool(
-            request.user.is_authenticated and request.user.is_student
-        )
 
-class IsInstructorManagingEnrollment(BasePermission):
-    """
-    Only Instructor can enroll students into their own courses
-    """
+class IsStudentEnrollingSelf(BasePermission):
     def has_permission(self, request, view):
-        if request.method != "POST":
+        return request.user.is_authenticated and request.user.is_student
+
+class InstructorManagingEnrollment(BasePermission):
+    def has_permission(self, request, view):
+        if not request.user.is_authenticated or not request.user.is_instructor :
+            return False
+        if request.method in SAFE_METHODS:
             return True 
-        return bool(
-            request.user.is_authenticated and request.user.is_instructor 
-        )
-    
+        course_id = request.data.get('course')
+        if not course_id :
+            return False 
+        return Course.objects.filter(id=course_id, instructor=request.user).exists()
+
 # ==============================
 #   Quiz Permission 
 # ==============================
@@ -194,3 +187,5 @@ class CanSubmitQuizOnce(BasePermission):
         if not request.user.is_student:
             return False
         return not QuizSubmission.objects.filter(quiz_content=obj, student=request.user).exists()
+
+# IsCourseInstructorOrReadOnly, IsInstructorOnly, IsLessonInstructorOrReadOnly, IsLessonOwnerOrReadOnly, IsStudentOnly, IsEnrolledStudentForReview, IsAdminOrReadOnly, IsReviewOwnerOrReadOnly, IsStudentEnrollingSelf, InstructorManagingEnrollment, IsQuizOwnerOrReadOnly, IsEnrolledInCourse, CanSubmitQuizOnce 

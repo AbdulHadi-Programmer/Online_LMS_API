@@ -8,10 +8,9 @@
     "is_student": "False"
 }
 {
-    // Created at 2 December 2025 ---Currently Working :
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NzI4OTIxMywiaWF0IjoxNzY0Njk3MjEzLCJqdGkiOiIxODUzNTMwMDAxZDQ0N2QwYjllY2IwOGI0YWYzZDVkZSIsInVzZXJfaWQiOiI4In0.dSC9EBkTpD0a0V5sdvz3BSyUHfdt00DjQ_EZoZhCMso",
-    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1MzAyMDEzLCJpYXQiOjE3NjQ2OTcyMTMsImp0aSI6IjU1YmM3N2Y3YWEwYjQ5ODRiZGQ1MGY5ZDkyYzI5ZTEyIiwidXNlcl9pZCI6IjgifQ.SuOH5tlKrgfAydlADby7PMGim-RN0YU0REooC-NCbIs",
-    
+    // Created at 8 December 2025 ---Currently Working :
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2Nzc4ODg3MiwiaWF0IjoxNzY1MTk2ODcyLCJqdGkiOiJlNTlhNzY5Yzg4Y2M0Y2E0OGYzOTA5Y2U1YzA1Y2I4NiIsInVzZXJfaWQiOiI2In0.fdqXhV2c_WNI1rV0Zv-06K74IyDxrLZHDp4UXYc54es",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1ODAxNjcyLCJpYXQiOjE3NjUxOTY4NzIsImp0aSI6IjRlMjhlNDZjZDI0ZTQ4Y2FhYmJhZjhkYjg2MDg4ZTNkIiwidXNlcl9pZCI6IjYifQ.OEX_PA_HSbO9gj5zJN6_YTNgCE4400O0PMT8h8DI-Ks",
 }
 
 {
@@ -23,11 +22,51 @@
     "is_instructor": "True",
     "is_student": "False"
 }
-{
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjY2NzcyMCwiaWF0IjoxNzY0MDc1NzIwLCJqdGkiOiJjZTllNTFiNmJhZWM0MDVjYjBhMTMxYjIwMTM5YjdmYyIsInVzZXJfaWQiOiI5In0.UL59pb6_ytbgnCV5UnqjottOfu68fSIg5Z_R7i3uEls",
-    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY0NjgwNTIwLCJpYXQiOjE3NjQwNzU3MjAsImp0aSI6IjAyNTQ4Y2VhNjNkMzQwNGI4ZjIxOWI3OTAyZmYxOTdjIiwidXNlcl9pZCI6IjkifQ.6hgjKNObkD5RcMCEDfCeM12zPJ1dhux7E86zvXAppXQ",
-
+{  // 8 December it is created : 
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2Nzc5NTYzNywiaWF0IjoxNzY1MjAzNjM3LCJqdGkiOiJhYTQwMTM3YTg2MmM0MzgwOTNiYzBiYzI5ZDg3ZGQzMiIsInVzZXJfaWQiOiI3In0.hP7DWyPuuGuZ-24WikicsvpmAdG7fFegqGNuaGe2aaA",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1ODA4NDM3LCJpYXQiOjE3NjUyMDM2MzcsImp0aSI6IjUwMjliYmFlZjFjZDQ2MzI4YWIzNTVhNDgzNmU4ZmEwIiwidXNlcl9pZCI6IjcifQ.T6C90Lr-cMuoH4hVQXxhbDCx3bPcVhByyY4yF84Rodg",
 }
+// Register Below Instructor 
+{
+    "username": "maria.rivers",
+    "email": "maria.rivers@example.com",
+    "password": "TestPass123",
+    "is_instructor": "True",
+    "is_student": "False", 
+    "bio": "Backend Engineer turned educator.",
+    
+    // 9 Decemeber 2025 
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2Nzg3NDQ2OCwiaWF0IjoxNzY1MjgyNDY4LCJqdGkiOiJlZWRlZjhjOTIxZDA0YjVjYTBkMjNkYjVhZGY5ODY3ZSIsInVzZXJfaWQiOiIxMiJ9.HYrY3W-j6CrOkngKFYOmdhZ0K37b4L5GDBcV_iAbDWU",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1ODg3MjY4LCJpYXQiOjE3NjUyODI0NjgsImp0aSI6ImQ0MGUzMjE0NTMwMTQzN2NiODgyMmUxNWNmNDFkZWQ0IiwidXNlcl9pZCI6IjEyIn0.yUx-a2f98qmh3NFzI4fxGLnKXQCnJSMSNwBxsWjalqU",
+       
+}
+{
+    "username": "kevin_ashford",
+    "email": "kevin.ashford@example.com",
+    "password": "TestPass123",
+    "is_instructor": "True",
+    "is_student": "False", 
+    "bio": "Teaches scalable API design.",
+
+    // 9 December 2025:
+     "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2Nzg3NDcyOCwiaWF0IjoxNzY1MjgyNzI4LCJqdGkiOiJiNzM1MzIwYmU0M2M0MjVmODEzODhkOTVmNDQ4ODg0ZCIsInVzZXJfaWQiOiIxMyJ9.VnmK2nKZdNe_GPDghAJhcqJqrLKFHHuuZJq2fcpkXjY",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1ODg3NTI4LCJpYXQiOjE3NjUyODI3MjgsImp0aSI6IjQ2MzQ2YjVlOTliZjQwYzliZDI4YjNhMzc3OTg1NmRkIiwidXNlcl9pZCI6IjEzIn0._tCkd1K_MuL_Ug_dIIgDDP9_XJwklMIb5ZNzsduU4eY",
+   
+}
+{
+    "username": "selina.kaur",
+    "email": "selina.kaur@example.com",
+    "password": "TestPass123",
+    "is_instructor": "True",
+    "is_student": "False", 
+    "bio": "Focuses on modern Python Workflows.", 
+
+    // 9 December 
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2Nzg3NDc4OCwiaWF0IjoxNzY1MjgyNzg4LCJqdGkiOiI2ZjIzYTQ5YWI5OTE0MWVkOGMxODMyZTY4NzZmY2Y3YyIsInVzZXJfaWQiOiIxNCJ9.UtOK4PzutYiTGjRZx9Xs9U94qgqgCeVRgtrvAVJbT6w",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1ODg3NTg4LCJpYXQiOjE3NjUyODI3ODgsImp0aSI6ImU1NGM5MjJiY2ViNTQ4NjhiYmM3ZTY5ODY0Zjg3OTdlIiwidXNlcl9pZCI6IjE0In0.pEbzJ4Gp0BYaDhHF6cRViZ4aRUIdgyxwTJpjLgXDb2M",
+    
+}
+
 // Student 
 {
     "id": 10,
@@ -52,8 +91,8 @@
     "is_student": "True"
 }
 {
-"refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjY5MTcyMCwiaWF0IjoxNzY0MDk5NzIwLCJqdGkiOiI0N2UzNTY3NThjMDU0MjkxYTBmNWZhOTNhZmZiMjkwNSIsInVzZXJfaWQiOiIxMSJ9.KbVdfntu-ujknEIRwOJmtMPcsKrSb1U5ozzUr1MwdL0",
-    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY0NzA0NTIwLCJpYXQiOjE3NjQwOTk3MjAsImp0aSI6ImViZjNiYjlmM2ZkZDQ2YzY4NTQ3MjJiNDMxNzA2YjkzIiwidXNlcl9pZCI6IjExIn0.MP5ts1wvpkYjedPM-zNCC-kYBYHHIi1favm_ZsPllu4",
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2Nzc4OTAzNywiaWF0IjoxNzY1MTk3MDM3LCJqdGkiOiIyMGM1Yzg0NGUzMTA0YzJlOGNjMGI0OWJmOGNlMmM3YyIsInVzZXJfaWQiOiI5In0.5VIxRmilSKX8duBkz-H5EQfCAOT2oY6jtLKjzLU3_QE",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1ODAxODM3LCJpYXQiOjE3NjUxOTcwMzcsImp0aSI6ImE2YTZiOGVhNTFiYTQ4MmE5MzYxN2Q3NjA1OTY1ZDkzIiwidXNlcl9pZCI6IjkifQ.2WG2WEcIEIYehdW2dvFGU1qtI-XSPO5HkUVI5-Q-Ptw",
 }
 {
     "id": 12,

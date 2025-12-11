@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators  import MinValueValidator, MaxValueValidator 
 
-
 class CustomUser(AbstractUser):
     is_instructor = models.BooleanField(default=False)
     is_student = models.BooleanField(default=False)
@@ -72,7 +71,9 @@ class Enrollment(models.Model):
     student = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="enrollments")
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="enrollments")
     enrolled_at = models.DateTimeField(auto_now_add=True)
-    # progress = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(100.0)], default=0.0)
+    is_active = models.BooleanField(default=True)
+    completed = models.BooleanField(default=False)
+    grade = models.CharField(max_length=5, blank=True, null=True)
 
     class Meta:
         unique_together = ('student', 'course')
@@ -81,7 +82,7 @@ class Enrollment(models.Model):
     def __str__(self):
         return f"{self.student.username} enrolled in {self.course.title}"
 
-class Review(models.Model):
+class Review(models.Model): 
     student = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="reviews")
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="reviews")
     rating = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
@@ -99,12 +100,25 @@ class QuizSubmission(models.Model):
     score = models.FloatField()
     submitted_at = models.DateTimeField(auto_now_add=True)
 
+from django.utils import timezone 
+import datetime 
+
 # V2
 class ContentProgress(models.Model):
     student = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="content_progress")
     content = models.ForeignKey(Content, on_delete=models.CASCADE, related_name='progress')
-    completed_at = models.DateTimeField(auto_now_add=True)
+    is_completed = models.BooleanField(default=False)
+    completed_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         unique_together = ('student', 'content')
+        ordering = ['-completed_at']
+
+    def mark_complete(self): 
+        self.is_completed = True 
+        self.completed_at = timezone.now()
+        self.save(update_fields=['is_completed', 'completed_at'])
+
+
+
 
