@@ -164,35 +164,16 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 ## Version 2 :
 from .models import QuizSubmission, Content, ContentProgress
-# ------------------------
-#  Content (New)
-# ------------------------
-class ContentSerializer(serializers.ModelSerializer):
-    lesson_title = serializers.CharField(source='lesson.title', read_only=True)
-
-    class Meta:
-        model = Content 
-        fields = ["id", "lesson", "lesson_title", "type", "order", "data", "created_at", ]
-        read_only_fields = ["created_at"]
-
-# ---------------------
-#  Content Progress 
-# --------------------
-class ContentProgressSerializer(serializers.ModelSerializer):
-    student_name = serializers.CharField(source="student.username", read_only=True)
-    content_type = serializers.CharField(source = "content.type", read_only=True)
-
-    class Meta:
-        model = ContentProgress
-        fields = ["id", "student", "student_name", "content", "content_type", "completed_at", ]
-        read_only_fields = ["completed_at"]
-
 class ContentSerializer(serializers.ModelSerializer):
     lesson_name = serializers.CharField(source='lesson.title', read_only=True)
     course_name = serializers.CharField(source='lesson.course.title', read_only=True)
+    
+    def get_content_title(self, obj):
+        return obj.content.data.get('title') or f"{obj.content.type.capitalize()} Content"
+    
     class Meta:
         model = Content
-        fields = ["id", "lesson", "lesson_name", "course_name","type", "order", "data", "created_at"]
+        fields = ["id", "lesson", "lesson_name", "course_name","type", "order", "data", "created_at"]        
         read_only_fields = ["id", "created_at"]
 
 
@@ -205,9 +186,7 @@ class QuizSubmissionSerializer(serializers.ModelSerializer):
     class Meta:
         model = QuizSubmission
         fields = ["id", "student", "student_name", "content", "answers", "score", "submitted_at"]
-        read_only_fields = ["score", "submitted"]
-
-
+        read_only_fields = ["score", "submitted_at"]
 
 
 ## Nested Data Serializer :
@@ -228,24 +207,19 @@ class CourseFullSerializer(serializers.ModelSerializer):
         fields = ["id", "title", "description","price", "thumbnail", "category", "category_name", "instructor", "instructor_name", "average_rating", "created_at", "updated_at", "lessons" ]
         read_only_fields = ["id", "created_at", "updated_at", "average_rating"]
 
-#lesson: course, title, order
-# Content : all fields 
 
 # =========================================
 #   Content Progress 
 # =========================================
 class ContentProgressSerializer(serializers.ModelSerializer):
     student_name = serializers.CharField(source='student.username', read_only=True)
-
-    # data JSONField se title nikal rahe hain
     content_title = serializers.SerializerMethodField()
 
     def get_content_title(self, obj):
         return obj.content.data.get('title') or f"{obj.content.type.capitalize()} Content"
 
-    class Meta :
+    class Meta:
         model = ContentProgress 
-        fields = ["id", "student_name", "student", "content", "content_title", "is_completed", "completed_at"]
-        
+        fields = ["id", "student_name", "student", "content", "content_title", "is_completed", "completed_at"]        
 
         

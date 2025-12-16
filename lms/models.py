@@ -28,8 +28,9 @@ class Course(models.Model):
     thumbnail = models.ImageField(upload_to='course_img/',blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    average_rating = models.DecimalField(max_digits=3, decimal_places=1, default=0.0) 
+    average_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.0, editable=False) 
 
+    
 
 
 # Updated V1 -> V2
@@ -42,29 +43,7 @@ class Lesson(models.Model):
         ordering = ['order']
 
     def __str__(self):
-        return f"{self.title} ({self.course.title})"
-
-# V2
-class Content(models.Model):
-    content_types = (
-        ('video', "Video"),
-        ('text', "Text"),
-        ('quiz', "Quiz"), 
-    )
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name= 'content')
-    type = models.CharField(max_length=10, choices=content_types)
-    order = models.PositiveIntegerField()
-
-    # Flexible JSON field to store different structures 
-    data = models.JSONField()
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        ordering = ['order']
-
-    def __str__(self): 
-        return f'{self.type} in {self.lesson.title}'
-    
+        return f"{self.title} ({self.course.title})"    
 
 
 class Enrollment(models.Model):
@@ -92,13 +71,27 @@ class Review(models.Model):
     def __str__(self):
         return f"{self.student.username} → {self.course.title} ({self.rating}⭐)"
 
-# v2
-class QuizSubmission(models.Model):
-    student = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='quiz_submissions')
-    content = models.ForeignKey(Content, on_delete=models.CASCADE, related_name="quiz_submissions")
-    answers = models.JSONField()
-    score = models.FloatField()
-    submitted_at = models.DateTimeField(auto_now_add=True)
+# V2
+class Content(models.Model):
+    content_types = (
+        ('video', "Video"),
+        ('text', "Text"),
+        ('quiz', "Quiz"), 
+    )
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name= 'content')
+    type = models.CharField(max_length=10, choices=content_types)
+    order = models.PositiveIntegerField()
+
+    # Flexible JSON field to store different structures 
+    data = models.JSONField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self): 
+        return f'{self.type} in {self.lesson.title}'
+
 
 from django.utils import timezone 
 import datetime 
@@ -119,6 +112,16 @@ class ContentProgress(models.Model):
         self.completed_at = timezone.now()
         self.save(update_fields=['is_completed', 'completed_at'])
 
+    def __str__(self):
+        status = "Completed" if self.is_completed else "Pending"
+        return f"{self.student} "
 
+# v2
+class QuizSubmission(models.Model):
+    student = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='quiz_submissions')
+    content = models.ForeignKey(Content, on_delete=models.CASCADE, related_name="quiz_submissions")
+    answers = models.JSONField()
+    score = models.FloatField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
 
 

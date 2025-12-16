@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from rest_framework.permissions import IsAuthenticated
 from django.db.models import Count, Avg
-from .models import Course, Lesson, Category, Enrollment, Review
+from .models import *
 from .serializers import (
     CourseSerializer,
     LessonSerializer,
@@ -14,25 +14,18 @@ from .serializers import (
     ReviewSerializer,
     RegisterSerializer,
 )
-from .permissions import (
-    IsInstructorOnly,
-    IsCourseInstructorOrReadOnly,
-    IsLessonInstructorOrReadOnly,
-    IsEnrolledStudentForReview,
-    IsReviewOwnerOrReadOnly
-
-)
-from .models import CustomUser
-from .serializers import UserSerializer, CourseFullSerializer
+from .permissions import IsStudentEnrollingSelf, InstructorManagingEnrollment
+from .permissions import *
+from rest_framework.permissions import AllowAny
 # JWT Custom Token View
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import CustomTokenObtainPairSerializer
+from .serializers import *
+from django.http import Http404
 
 
 # =========================================================
 # AUTH
 # =========================================================
-from rest_framework.permissions import AllowAny
 
 class CustomTokenView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
@@ -162,7 +155,7 @@ class LessonAPIView(APIView):
         search = request.query_params.get("search")
         if search:
             lessons = lessons.filter(
-                Q(title__icontains=search) | Q(content__icontains=search)
+                Q(title__icontains=search) # | Q(content__icontains=search)
             )
 
         course = request.query_params.get("course")
@@ -268,7 +261,6 @@ class CategoryDetailAPIView(APIView):
 # =========================================================
 # ENROLLMENT CRUD
 # =========================================================
-from .permissions import IsStudentEnrollingSelf, InstructorManagingEnrollment
 class EnrollmentAPIView(APIView):
     
     def get_permissions(self):
@@ -301,9 +293,9 @@ class EnrollmentAPIView(APIView):
         if course:
             queryset = queryset.filter(course_id=course)
 
-        progress = request.query_params.get("progress")
-        if progress:
-            queryset = queryset.filter(progress__gte=progress)
+        # progress = request.query_params.get("progress")
+        # if progress:
+            # queryset = queryset.filter(progress__gte=progress)
 
         ordering = request.query_params.get("ordering")
         allowed = ["enrolled_at", "progress"]
@@ -344,7 +336,7 @@ class EnrollmentAPIView(APIView):
         else:
             return Response({"detail": "Unauthorized"}, status=403)
 
-from .permissions import IsEnrolledInCourse
+
 class EnrollmentDetailAPIView(APIView):
     permission_classes = [IsAuthenticated, IsEnrolledInCourse]
 
@@ -378,9 +370,32 @@ class EnrollmentDetailAPIView(APIView):
 # =========================================================
 # REVIEW CRUD
 # =========================================================
-from rest_framework.permissions import AllowAny
+# =========================================================
+# =========|_______________|================================
+# =========|               |================================
+# =========|               |================================
+# =========|               |================================
+# =========|               |================================
+# =========|               |================================
+# =========|_______________|================================
+# =========|               |===============================
+# =========|               |===============================
+# =========|               |===============================
+# =========|               |===============================
+# =========|               |===============================
+# =========|               |===============================
+# =========|_______________|===============================
+# =========|               |===============================
+# =========|               |===============================
+# =========|               |===============================
+# =========|               |===============================
+# =========|               |===============================
+# =========|               |===============================
+# =========|_______________|===============================
+# =========================================================
 
 class ReviewAPIView(APIView):
+    permission_classes = []
     # Simplify permissions: POST requires authentication, others are open.
     def get_permissions(self):
         if self.request.method == "POST":
@@ -461,7 +476,6 @@ class CurrentUserAPIView(APIView):
         }
         return Response(data)
     
-from django.http import Http404
 
 class UserDetailView(APIView):
     permission_classes = [IsAuthenticated]
@@ -477,12 +491,7 @@ class UserDetailView(APIView):
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-from .models import Content, ContentProgress, QuizSubmission
-from .serializers import ContentProgressSerializer, ContentSerializer, QuizSubmissionSerializer
-from .permissions import *
-from rest_framework.views import APIView
-from rest_framework.response import Response 
-from rest_framework import status 
+
 
 class QuizListAPIView(APIView):
     permission_classes = [AllowAny]
@@ -498,7 +507,7 @@ class QuizListAPIView(APIView):
         serializer = ContentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(instructor = request.user,type="quiz") # force type
-            return Response(serializer.errors , status=400)
+            return Response(serializer.data , status=201)
         return Response(serializer.errors, status=400)
 
 class QuizRetrieveUpdateDestroyAPIView(APIView):
@@ -532,7 +541,7 @@ class QuizRetrieveUpdateDestroyAPIView(APIView):
     def delete(self, request, id):
         quiz = self.get_object(id)
         quiz.delete()
-        return Response({"message": "Deleted"}, status=204)
+        return Response({"message": "Deleted"}, status=status.HTTP_204_NO_CONTENT)
 
 
 class QuizSubmitAPIView(APIView):
@@ -579,6 +588,8 @@ class QuizSubmitAPIView(APIView):
 #       Content CRUD       :
 # ==========================
 class ContentListCreateAPIView(APIView):
+    permission_classes = [IsAuthenticated, IsInstructorOnly]
+
     def get(self, request, lesson_id=None):
         if lesson_id:
             content = Content.objects.filter(lesson_id=lesson_id)
@@ -641,7 +652,6 @@ class CourseLessonListAPIView(APIView):
         serializer = LessonSerializer(qs, many=True)
         return Response(serializer.data)
 
-from .permissions import IsStudentOnly, IsEnrolledInCourse
 # All data course -> lesson -> content :
 class CourseFullDetailAPIView(APIView):
     permission_classes = [IsAuthenticated, IsEnrolledInCourse]
@@ -677,6 +687,7 @@ class InstructorCoursesAPIView(APIView):
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data, status=200)
     
+
 class MarkCompleteAPIView(APIView):
     """
     API urls: /lms/progress/complete/<content_id>/
@@ -709,12 +720,12 @@ class ContentProgressPercentage(APIView):
         
         course = get_object_or_404(Course, id=course_id)
         if not Enrollment.objects.filter(student=request.user, course=course, is_active=True).exists():
-            return 
+            return Response({"error": "Not Enrolled in this course"}, status=403)
             
         # Count content of specific course 
         total_contents = Content.objects.filter(lesson__course=course).count()
         
-        completed_contents = Content.objects.filter(student=request.user, content__lesson__course=course, is_completed=True).count()
+        completed_contents = ContentProgress.objects.filter(student=request.user, content__lesson__course=course, is_completed=True).count()
 
         if total_contents == 0:
             percentage = 0
