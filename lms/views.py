@@ -122,6 +122,9 @@ class CourseDetailAPIView(APIView):
 
     def put(self, request, pk):
         course = get_object_or_404(Course, pk=pk)
+        # Triggers Permission
+        self.check_object_permissions(request, course) 
+
         serializer = CourseSerializer(course, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -130,6 +133,9 @@ class CourseDetailAPIView(APIView):
 
     def patch(self, request, pk):
         course = get_object_or_404(Course, pk=pk)
+        # Trigger Permission :
+        self.check_object_permissions(request, course) 
+        
         serializer = CourseSerializer(course, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
@@ -262,22 +268,23 @@ class CategoryDetailAPIView(APIView):
 # ENROLLMENT CRUD
 # =========================================================
 class EnrollmentAPIView(APIView):
-    
-    def get_permissions(self):
-        """
-        Student can enroll only themself
-        Instructor can add student in his course 
-        """
-        if self.request.method == 'GET':
-            return [IsAuthenticated()]   # Any Auth user can view that 
+    permission_classes = [IsAuthenticated, IsInstructorOnly]
+
+    # def get_permissions(self):
+        # """
+        # Student can enroll only themself
+        # Instructor can add student in his course 
+        # """
+        # if self.request.method == 'GET':
+            # return [IsAuthenticated()]   # Any Auth user can view that 
         
-        if self.request.user.is_student:
-            return [IsAuthenticated()]
+        # if self.request.user.is_student:
+            # return [IsAuthenticated()]
         
-        if self.request.user.is_instructor :
-            return [InstructorManagingEnrollment()]
+        # if self.request.user.is_instructor :
+            # return [InstructorManagingEnrollment()]
         
-        return [IsAuthenticated()]
+        # return [IsAuthenticated()]
 
     def get(self, request):
         queryset = Enrollment.objects.all()
@@ -609,6 +616,7 @@ class ContentListCreateAPIView(APIView):
 
 
 class ContentRetrieveUpdateDestroyAPIView(APIView):
+    permission_classes = [IsAuthenticated, IsInstructorOnly]
     def get(self, request, id):
         content = get_object_or_404(Content, id=id)
         serializer = ContentSerializer(content)
@@ -640,6 +648,9 @@ class ContentRetrieveUpdateDestroyAPIView(APIView):
 ### Content Specific V2 Features :
 # Content inside lessson
 class LesssonContentListCreateAPIView(APIView):
+    # permission_classes = [IsAuthenticated, IsInstructorOnly]
+    permission_classes = [IsAuthenticated ]
+
     def get(self, request, lesson_id):
         qs = Content.objects.filter(lesson_id=lesson_id)
         serializer = ContentSerializer(qs, many=True)
@@ -647,6 +658,8 @@ class LesssonContentListCreateAPIView(APIView):
 
 # Lesson inside Courses
 class CourseLessonListAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request, course_id):
         qs = Lesson.objects.filter(course=course_id)
         serializer = LessonSerializer(qs, many=True)
@@ -655,6 +668,7 @@ class CourseLessonListAPIView(APIView):
 # All data course -> lesson -> content :
 class CourseFullDetailAPIView(APIView):
     permission_classes = [IsAuthenticated, IsEnrolledInCourse]
+    
     def get(self, request, course_id):
         course = get_object_or_404(Course.objects.prefetch_related("lessons__content"), id=course_id)
         serializer = CourseFullSerializer(course)
@@ -695,7 +709,6 @@ class MarkCompleteAPIView(APIView):
     permission_classes = [IsAuthenticated]
     def post(self, request, content_id):
         content = get_object_or_404(Content, id=content_id)
-        # serializer = ContentSerializer(content)
         if not request.user.is_student :
             return Response ({"error": "Only Student can have Permission"}, status=status.HTTP_403_FORBIDDEN)
         
@@ -713,6 +726,8 @@ class MarkCompleteAPIView(APIView):
 
 ### Content Progress Percentage :
 class ContentProgressPercentage(APIView):
+    permission_classes = [IsAuthenticated, IsStudentOnly]
+
     def get(self, request, course_id):
 
         if not request.user.is_student :    
@@ -742,7 +757,7 @@ class ContentProgressPercentage(APIView):
 
 ## Analytics API :
 class CourseAnalyticsAPIView(APIView):
-    permission_classes = [IsAuthenticated]  # Baad mein tight kar lenge
+    permission_classes = [IsAuthenticated, IsInstructorOnly]  # Baad mein tight kar lenge
 
     def get(self, request, id):
         course = get_object_or_404(Course, id=id)
@@ -799,7 +814,7 @@ Yeh API run karne pe instructor ko full insights dega, jaise Udemy dashboard.
 """
 
 class AssignGradeAPIView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsInstructorOnly]
 
     def post(self, request, id, student_id):
         course = get_object_or_404(Course, id=id)

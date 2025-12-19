@@ -21,10 +21,11 @@ class IsInstructorOnly(BasePermission):
     Only instructors can create courses or lessons.
     """
     def has_permission(self, request, view):
-        return bool(
-            request.user.is_authenticated
-            and request.user.is_instructor
-        )
+        # Allow any authenticated user to perform GET, HEAD, or OPTIONS
+        if request.method in SAFE_METHODS:
+            return bool(request.user and request.user.is_authenticated)
+        
+        return bool(request.user and request.user.is_authenticated and request.user.is_instructor )
 
 
 # ==========================================================

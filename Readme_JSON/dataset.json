@@ -7,10 +7,9 @@
     "is_instructor": "True",
     "is_student": "False"
 }
-{
-    // Created at 8 December 2025 ---Currently Working :
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2Nzc4ODg3MiwiaWF0IjoxNzY1MTk2ODcyLCJqdGkiOiJlNTlhNzY5Yzg4Y2M0Y2E0OGYzOTA5Y2U1YzA1Y2I4NiIsInVzZXJfaWQiOiI2In0.fdqXhV2c_WNI1rV0Zv-06K74IyDxrLZHDp4UXYc54es",
-    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1ODAxNjcyLCJpYXQiOjE3NjUxOTY4NzIsImp0aSI6IjRlMjhlNDZjZDI0ZTQ4Y2FhYmJhZjhkYjg2MDg4ZTNkIiwidXNlcl9pZCI6IjYifQ.OEX_PA_HSbO9gj5zJN6_YTNgCE4400O0PMT8h8DI-Ks",
+{  // Created 17 december valid till 24 december
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NTUwODUyLCJpYXQiOjE3NjU5NDYwNTIsImp0aSI6IjdjZWE0MTVmZGU1YTQ5YWNiODYxNDI0N2JjOGMzZTBiIiwidXNlcl9pZCI6IjYifQ.Y2qmN6ZM26ZjNNacA3Arb96melrcT8pkeM2-m4LxnKI",
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2ODUzODA1MiwiaWF0IjoxNzY1OTQ2MDUyLCJqdGkiOiI1OWViZGViMDMyZWY0ZmYyYTgzYzlmYTYwYTg4OTRiZCIsInVzZXJfaWQiOiI2In0.oM4UnlwRUm1_hrk_35p2hVR3ZuDoicgkCqDRl5aBdQw"
 }
 
 {
@@ -54,17 +53,17 @@
    
 }
 {
-    "username": "selina.kaur",
     "email": "selina.kaur@example.com",
+    "username": "selina.kaur",
     "password": "TestPass123",
     "is_instructor": "True",
     "is_student": "False", 
     "bio": "Focuses on modern Python Workflows.", 
 
     // 9 December 
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2Nzg3NDc4OCwiaWF0IjoxNzY1MjgyNzg4LCJqdGkiOiI2ZjIzYTQ5YWI5OTE0MWVkOGMxODMyZTY4NzZmY2Y3YyIsInVzZXJfaWQiOiIxNCJ9.UtOK4PzutYiTGjRZx9Xs9U94qgqgCeVRgtrvAVJbT6w",
-    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1ODg3NTg4LCJpYXQiOjE3NjUyODI3ODgsImp0aSI6ImU1NGM5MjJiY2ViNTQ4NjhiYmM3ZTY5ODY0Zjg3OTdlIiwidXNlcl9pZCI6IjE0In0.pEbzJ4Gp0BYaDhHF6cRViZ4aRUIdgyxwTJpjLgXDb2M",
-    
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2ODU4ODE4NCwiaWF0IjoxNzY1OTk2MTg0LCJqdGkiOiI4M2FjZjhiNWNmYzc0MjYxODM3OGI0ZDk5NTY2OWU0NyIsInVzZXJfaWQiOiIxNCJ9.cNlQrcqBOxTdT-xS9x36ypO0di4esjDHhrLCqVZ0r2c",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NjAwOTg0LCJpYXQiOjE3NjU5OTYxODQsImp0aSI6IjVlYTcwMjkzZjQxZTRlZWQ4N2ViZmZlOTMwNDI5NTkxIiwidXNlcl9pZCI6IjE0In0.czcypCL0bFtfe2L9TycjqCE8oXULJ7hHxRQWMMdW5DU"
+        
 }
 
 // Student 
@@ -77,9 +76,9 @@
     "is_instructor": "False",
     "is_student": "True"
 }
-{   // Student Acc 2 December Created --- cureently working 
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NzI4OTQxNiwiaWF0IjoxNzY0Njk3NDE2LCJqdGkiOiI2NzVmYTJmYzZiNjQ0M2QyYmYyZmJlMjUzNjUyNWE5OCIsInVzZXJfaWQiOiIxMCJ9.XM2iL6gNEgbAIAur4qFqR6hTiApdpdJmMKBl_SFcst0",
-    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1MzAyMjE2LCJpYXQiOjE3NjQ2OTc0MTYsImp0aSI6IjQ2OWFkMzgyYWMzOTQ0ZDI5MWM0MmRmZTQ3MmVjMTY5IiwidXNlcl9pZCI6IjEwIn0.Hvy8ZT3vT0QIWc7-qNu2IQc48Ryi9a4p2TomBfkhTh0",
+{   // Student Acc 17 December Created --- currently working 
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2ODUzODI2NSwiaWF0IjoxNzY1OTQ2MjY1LCJqdGkiOiI3OTk1ODVkNDJmNTM0NDAwYmI1ZTVlM2ExMWJhYzhiNCIsInVzZXJfaWQiOiI4In0.oLfqrrQsk9y4Ge0Lz9C-G50Oo15WqvdQOaT7HgDvRAo",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2NTUxMDY1LCJpYXQiOjE3NjU5NDYyNjUsImp0aSI6IjU3OTU5OGFkMTk4OTQ3OTFhYzI3ODUwZDExOGEwNWE3IiwidXNlcl9pZCI6IjgifQ.pk1fSExTo-DIopI38P5RNOlAfADC0dd3gapr3R-xWkI",
 }
 {
     "id": 11,

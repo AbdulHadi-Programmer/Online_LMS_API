@@ -93,6 +93,11 @@ class CourseSerializer(serializers.ModelSerializer):
             "thumbnail", "created_at", "updated_at",
         ]
         read_only_fields = ["created_at", "updated_at"]
+    
+    def validate_instructor(self, value):
+        if not value.is_instructor: 
+            raise serializers.ValidationError("The new user must be an instructor.")
+        return value
 
 
 # -----------------------
