@@ -36,26 +36,26 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 1088.2000350952148,
-			"y": 495.799991607666,
-			"lastActivityTimestamp": 1764696646759,
+			"x": 390.5558769855487,
+			"y": 514.9120842859829,
+			"lastActivityTimestamp": 1766217491700,
 			"meta": {}
 		},
 		{
-			"x": -74.5999984741211,
-			"y": 40.200008392333984,
-			"z": 1,
+			"x": 16.892958409970152,
+			"y": 96.26114023571611,
+			"z": 0.5340547995241829,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
 		},
 		{
-			"editingShapeId": null,
+			"editingShapeId": "shape:qYeYHM066ha3Zv4ExSn5j",
 			"croppingShapeId": null,
 			"selectedShapeIds": [
-				"shape:FxC29mBZ_QqatrQQKkgzL"
+				"shape:qYeYHM066ha3Zv4ExSn5j"
 			],
-			"hoveredShapeId": "shape:FxC29mBZ_QqatrQQKkgzL",
+			"hoveredShapeId": "shape:qYeYHM066ha3Zv4ExSn5j",
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
 			"focusedGroupId": null,
@@ -81,9 +81,9 @@
 				"growY": 0,
 				"url": "",
 				"scale": 1,
-				"color": "black",
+				"color": "green",
 				"labelColor": "black",
-				"fill": "none",
+				"fill": "pattern",
 				"size": "m",
 				"font": "draw",
 				"align": "middle",
@@ -184,7 +184,7 @@
 											"content": [
 												{
 													"type": "text",
-													"text": "Eucilidean Vector "
+													"text": "Eucilidean Vector Space  "
 												}
 											]
 										}
@@ -206,6 +206,88 @@
 			"typeName": "shape"
 		},
 		{
+			"x": 857.1651978458488,
+			"y": 683.3147956104328,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:4ITc5w5xx3jQHcmmbEO3s",
+			"type": "geo",
+			"props": {
+				"w": 337,
+				"h": 355.035536497915,
+				"geo": "rectangle",
+				"dash": "draw",
+				"growY": 0,
+				"url": "",
+				"scale": 1,
+				"color": "red",
+				"labelColor": "black",
+				"fill": "solid",
+				"size": "m",
+				"font": "draw",
+				"align": "middle",
+				"verticalAlign": "middle",
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Digital Logic Design Lab:"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Complete the manual and prepare for the lab exam"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "(Deadline: 2 Jan 2026)"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a86NqaMV",
+			"typeName": "shape"
+		},
+		{
 			"x": 99.19999694824219,
 			"y": 183.00001525878906,
 			"rotation": 0,
@@ -222,9 +304,9 @@
 				"growY": 0,
 				"url": "",
 				"scale": 1,
-				"color": "black",
+				"color": "light-red",
 				"labelColor": "black",
-				"fill": "none",
+				"fill": "pattern",
 				"size": "m",
 				"font": "draw",
 				"align": "middle",
@@ -267,6 +349,206 @@
 			},
 			"parentId": "page:page",
 			"index": "a2Geu9UG",
+			"typeName": "shape"
+		},
+		{
+			"x": 478.12191319569627,
+			"y": 681.8953025576036,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:wu1RvGbScZblRdBncpcug",
+			"type": "geo",
+			"props": {
+				"w": 342,
+				"h": 354.8786240760189,
+				"geo": "rectangle",
+				"dash": "draw",
+				"growY": 0,
+				"url": "",
+				"scale": 1,
+				"color": "red",
+				"labelColor": "black",
+				"fill": "solid",
+				"size": "m",
+				"font": "draw",
+				"align": "middle",
+				"verticalAlign": "middle",
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Database Lab:"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Build One CRUD project with min 5 pages."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "( Lab Exam )"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "(Deadline: 2 Jan 2026)"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a7LPTwQV",
+			"typeName": "shape"
+		},
+		{
+			"x": 139.9224949409879,
+			"y": 676.2172761960978,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:ZGeHYUuGWHkCb5EwgDAm_",
+			"type": "geo",
+			"props": {
+				"w": 288,
+				"h": 356.298225429226,
+				"geo": "rectangle",
+				"dash": "draw",
+				"growY": 0,
+				"url": "",
+				"scale": 1,
+				"color": "red",
+				"labelColor": "black",
+				"fill": "solid",
+				"size": "m",
+				"font": "draw",
+				"align": "middle",
+				"verticalAlign": "middle",
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "OOP lab:"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "SOftcopy Manual Submission "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "(Lab Exam)"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "(Deadline: 2 Jan 2026)"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a6rRw0OV",
 			"typeName": "shape"
 		},
 		{
@@ -332,9 +614,9 @@
 				"growY": 0,
 				"url": "",
 				"scale": 1,
-				"color": "black",
+				"color": "yellow",
 				"labelColor": "black",
-				"fill": "none",
+				"fill": "solid",
 				"size": "m",
 				"font": "draw",
 				"align": "middle",
@@ -417,6 +699,40 @@
 											]
 										}
 									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "latches"
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"text": "Multiplexer and Demultiplexer "
+												}
+											]
+										}
+									]
 								}
 							]
 						},
@@ -434,8 +750,8 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 295,
-			"y": 182.40000915527344,
+			"x": 286.01218115211157,
+			"y": 183.89795991553524,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
@@ -450,9 +766,9 @@
 				"growY": 112.40000915527344,
 				"url": "",
 				"scale": 1,
-				"color": "black",
+				"color": "violet",
 				"labelColor": "black",
-				"fill": "none",
+				"fill": "pattern",
 				"size": "m",
 				"font": "draw",
 				"align": "middle",
@@ -513,13 +829,19 @@
 											"content": [
 												{
 													"type": "text",
-													"text": "Assignment, Project deadline 9 Dec 2025"
+													"text": "Project submission, assignments"
 												}
 											]
 										}
 									]
 								}
 							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
 						},
 						{
 							"type": "paragraph",
@@ -552,7 +874,10 @@
 			"followingUserId": null,
 			"opacityForNextShape": 1,
 			"stylesForNextShape": {
-				"tldraw:geo": "rectangle"
+				"tldraw:geo": "rectangle",
+				"tldraw:color": "yellow",
+				"tldraw:fill": "solid",
+				"tldraw:size": "m"
 			},
 			"brush": null,
 			"scribbles": [],
@@ -567,7 +892,7 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1438.4000244140625,
+				"w": 695.2000122070312,
 				"h": 718.4000244140625
 			},
 			"insets": [
