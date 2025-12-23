@@ -8,8 +8,8 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_DB: my_django_db
-      POSTGRES_USER: my_django_user
-      POSTGRES_PASSWORD: strongpassword
+      POSTGRES_USER: lms_user
+      POSTGRES_PASSWORD: lms_passkey  
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
@@ -34,9 +34,9 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DB_NAME=lms_database
-      - DB_USER=lms_user
-      - DB_PASSWORD=lms_password_123
+      - DB_NAME=my_django_db
+      - DB_USER=my_django_user 
+      - DB_PASSWORD=strongpassword
       - DB_HOST=db
       - DB_PORT=5432
       - DEBUG=True
